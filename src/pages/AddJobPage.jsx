@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-
 const AddJobPage = ({ addJobSubmit }) => {
   const [title, setTitle] = useState("")
   const [type, setType] = useState("Full-Time")
@@ -31,6 +30,7 @@ const AddJobPage = ({ addJobSubmit }) => {
         contactPhone,
       },
     }
+
     addJobSubmit(newJob)
 
     return navigate("/jobs")

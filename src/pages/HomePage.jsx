@@ -1,4 +1,3 @@
-// import Home from "../components/Home"
 import Hero from "../components/Hero"
 import HomeCards from "../components/HomeCards"
 import JobListings from "../components/JobListings"
@@ -14,5 +13,4 @@ const HomePage = () => {
     </>
   )
 }
-
 export default HomePage

@@ -3,7 +3,7 @@ import { FaArrowLeft, FaMapMarker } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
 
-const JobPageSingular = ({ deleteJob }) => {
+const JobPage = ({ deleteJob }) => {
   const navigate = useNavigate()
   const { id } = useParams()
   const job = useLoaderData()
@@ -17,10 +17,11 @@ const JobPageSingular = ({ deleteJob }) => {
 
     deleteJob(jobId)
 
-    toast.success('Job Deleted Successfully')
+    toast.success("Job deleted successfully")
 
     navigate("/jobs")
   }
+
   return (
     <>
       <section>
@@ -62,6 +63,7 @@ const JobPageSingular = ({ deleteJob }) => {
               </div>
             </main>
 
+            {/* <!-- Sidebar --> */}
             <aside>
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-bold mb-6">Company Info</h3>
@@ -115,4 +117,4 @@ const jobLoader = async ({ params }) => {
   return data
 }
 
-export { JobPageSingular as default, jobLoader }
+export { JobPage as default, jobLoader }

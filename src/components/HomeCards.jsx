@@ -1,6 +1,5 @@
-import React from "react"
-import Card from "./Card"
 import { Link } from "react-router-dom"
+import Card from "./Card"
 
 const HomeCards = () => {
   return (
@@ -36,5 +35,4 @@ const HomeCards = () => {
     </section>
   )
 }
-
 export default HomeCards

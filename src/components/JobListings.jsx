@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react"
-import JobListingSingular from "./JobListingSingular"
+import { useState, useEffect } from "react"
+import JobListing from "./JobListing"
 import Spinner from "./Spinner"
 
 const JobListings = ({ isHome = false }) => {
-  // const jobListings = isHome ? jobs.slice(0, 3) : jobs
   const [jobs, setJobs] = useState([])
   const [loading, setLoading] = useState(true)
-  const apiUrl = isHome
-    ? "/api/jobs?_limit=3"
-    : "/api/jobs"
 
   useEffect(() => {
     const fetchJobs = async () => {
+      const apiUrl = isHome ? "/api/jobs?_limit=3" : "/api/jobs"
       try {
         const res = await fetch(apiUrl)
         const data = await res.json()
@@ -22,6 +19,7 @@ const JobListings = ({ isHome = false }) => {
         setLoading(false)
       }
     }
+
     fetchJobs()
   }, [])
 
@@ -37,7 +35,7 @@ const JobListings = ({ isHome = false }) => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {jobs.map((job) => (
-              <JobListingSingular key={job.id} job={job} />
+              <JobListing key={job.id} job={job} />
             ))}
           </div>
         )}
@@ -45,5 +43,4 @@ const JobListings = ({ isHome = false }) => {
     </section>
   )
 }
-
 export default JobListings
